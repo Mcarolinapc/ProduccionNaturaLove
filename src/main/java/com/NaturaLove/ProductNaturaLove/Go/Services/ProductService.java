@@ -27,27 +27,7 @@ public class ProductService {
 
 
         public void DataBaseProducts() {
-
-            Faker faker = new Faker(new Locale("en-GB"));
-            Date date = new Date();
-
-            // ref variable creation UUID
-            String uniqueID;
-
-            for (int i = 0; i <10 ; i++ ){
-
-                uniqueID = UUID.randomUUID().toString();
-                simulationTiendaRepository.save(
-                        new Productos( uniqueID,
-                                date.toString(),
-                                faker.number().numberBetween(100, 1250),
-                                faker.artist().name() ));
-
-
-            }
-
         }
-
 
 
 
