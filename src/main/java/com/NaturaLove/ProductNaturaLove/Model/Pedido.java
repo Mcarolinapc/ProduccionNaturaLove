@@ -1,4 +1,4 @@
-package com.NaturaLove.ProductNaturaLove.Go.Model;
+package com.NaturaLove.ProductNaturaLove.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
 public class Pedido {
 
     @Id
-    private String id;
+    private int id;
     private int idTipoPedido;
     private int idCliente;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="CUSTOMER_FK")
-    private Customer customer;
+   private Customer customer;
 }
