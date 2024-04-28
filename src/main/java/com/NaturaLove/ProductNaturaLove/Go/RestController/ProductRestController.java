@@ -1,8 +1,8 @@
 package com.NaturaLove.ProductNaturaLove.Go.RestController;
 
 
-import com.NaturaLove.ProductNaturaLove.Go.Model.Productos;
-import com.NaturaLove.ProductNaturaLove.Go.Services.CustomerService;
+import com.NaturaLove.ProductNaturaLove.Go.Model.Producto;
+import com.NaturaLove.ProductNaturaLove.Go.Services.ClienteService;
 import com.NaturaLove.ProductNaturaLove.Go.Services.ProductService;
 import com.NaturaLove.ProductNaturaLove.Go.Repository.CustomerRepository;
 import com.NaturaLove.ProductNaturaLove.Go.Repository.ProductRepository;
@@ -15,7 +15,7 @@ public class ProductRestController {
     @Autowired
     ProductService productService;
     @Autowired
-    CustomerService customerService;
+    ClienteService clienteService;
 
     @Autowired
     ProductRepository simulationProductRepository;
@@ -34,7 +34,7 @@ public class ProductRestController {
 
     @RequestMapping("/Products")  //visualizo los datos json
 
-    public Iterable<Productos> getAllTiendaNaturaloves () {
+    public Iterable<Producto> getAllTiendaNaturaloves () {
 
         return productService.getAllTiendaNaturaloves();
 

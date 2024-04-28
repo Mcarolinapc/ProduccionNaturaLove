@@ -1,6 +1,6 @@
 package com.NaturaLove.ProductNaturaLove.Go.Model;
 
-public class LineaPedido {
+public class DetallePedido{
     private int id;
     private int idPedido;
     private int idProducto;

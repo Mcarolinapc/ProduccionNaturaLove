@@ -1,6 +1,4 @@
 package com.NaturaLove.ProductNaturaLove.Go.Services;
-
-import com.NaturaLove.ProductNaturaLove.Go.Model.Customer;
 import com.NaturaLove.ProductNaturaLove.Go.Model.Pedido;
 import com.NaturaLove.ProductNaturaLove.Go.Repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

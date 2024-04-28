@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Customer {
+public class Cliente {
 
      @Id
     private String id;
@@ -30,10 +30,11 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Pedido> pedidos = new ArrayList<>();
 
-    public void addSimulation(Pedido pedido) {
+    public void addPedido(Pedido pedido) {
         this.getPedidos().add(pedido);
-        //if (simulation.getId() != null) simulation.getId().getSimulations().remove(simulation);
-        pedido.setCustomer(this);
+        pedido.setCliente(this);
     }
+
+
 
 }

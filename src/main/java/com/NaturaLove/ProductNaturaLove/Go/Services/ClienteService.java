@@ -1,27 +1,27 @@
 package com.NaturaLove.ProductNaturaLove.Go.Services;
 
-import com.NaturaLove.ProductNaturaLove.Go.Model.Customer;
+import com.NaturaLove.ProductNaturaLove.Go.Model.Cliente;
 import com.NaturaLove.ProductNaturaLove.Go.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
+
 import java.util.Optional;
 
 @Service
-public class CustomerService {
+public class ClienteService {
 
     @Autowired
     CustomerRepository customerRepository;
 
-    public Customer saveCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public Cliente saveCustomer(Cliente cliente) {
+        return customerRepository.save(cliente);
     }
 
-    public Iterable <Customer> getAllCustomers() {
+    public Iterable <Cliente> getAllCustomers() {
         return customerRepository.findAll();
     }
 
-    public Optional<Customer> getCustomerById(String id) {
+    public Optional<Cliente> getCustomerById(String id) {
         return customerRepository.findById(id);
     }
 
@@ -29,10 +29,10 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
 
-    public Customer updateCustomer(String id, Customer customer) {
+    public Cliente updateCustomer(String id, Cliente cliente) {
         if (customerRepository.existsById(id)) {
-            customer.setId(id);
-            return customerRepository.save(customer);
+            cliente.setId(id);
+            return customerRepository.save(cliente);
         } else {
             throw new IllegalArgumentException("Customer with id " + id + " does not exist.");
         }

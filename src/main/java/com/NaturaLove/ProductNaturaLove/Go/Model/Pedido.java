@@ -20,5 +20,5 @@ public class Pedido {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="CUSTOMER_FK")
-    private Customer customer;
+    private Cliente cliente;
 }
