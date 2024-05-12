@@ -11,30 +11,26 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Cliente {
-
-     @Id
+    @Id
     private String id;
-    private String name;
-    private  String LastName;
-    private  String direction;
+    private String nombre;
+    private String apellidos;
+    private String direccion;
     private String mail;
-    private int phone;
+    private String phone;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Pedido> pedidos = new ArrayList<>();
 
     public void addPedido(Pedido pedido) {
         this.getPedidos().add(pedido);
+
         pedido.setCliente(this);
     }
-
-
 
 }

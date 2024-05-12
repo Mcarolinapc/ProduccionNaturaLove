@@ -14,8 +14,8 @@ public class Pedido {
 
     @Id
     private String id;
+    private String fecha;
     private int idTipoPedido;
-    private int idCliente;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)

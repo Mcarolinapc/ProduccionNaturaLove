@@ -1,10 +1,10 @@
 package com.NaturaLove.ProductNaturaLove.Go.Model;
 
 public class DetallePedido{
-    private int id;
-    private int idPedido;
-    private int idProducto;
-    private int idCantidad;
-    private int precio;
+    private String id;
+    private String idPedido;
+    private String idProducto;
+    private int idQuantity;
+    private int price;
 
 }
