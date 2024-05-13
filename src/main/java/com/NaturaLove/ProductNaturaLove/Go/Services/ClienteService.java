@@ -19,8 +19,6 @@ public class ClienteService {
     CustomerRepository customerRepository;
     @Autowired
     PedidoService pedidoService;
-    @Autowired
-    Cliente cliente;
 
 
     /*public Customer saveCustomer(Customer customer) {

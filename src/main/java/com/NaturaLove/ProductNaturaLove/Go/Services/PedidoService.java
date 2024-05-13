@@ -56,13 +56,27 @@ public class PedidoService {
             uniqueID = UUID.randomUUID().toString();
             Pedido pedido = new Pedido(uniqueID,
                     date.toString(),
-                    faker.number().numberBetween(1, 2), null
-            );
+                    faker.number().numberBetween(1, 2),null);
 
             pedidos.add(pedido);
 
 
         }
+
+        return pedidos;
+    }
+
+    public List<Pedido> populate() {
+
+        List<Pedido> pedidos = createFakePedidos();
+
+        for (int i = 0; i <10 ; i++ ){
+            pedidoRepository.save(pedidos.get(i));
+            pedidos.add(pedidos.get(i));
+        }
+
+        System.out.println(populate());
+
 
         return pedidos;
     }
