@@ -29,7 +29,6 @@ public class Cliente {
 
     public void addPedido(Pedido pedido) {
         this.getPedidos().add(pedido);
-
         pedido.setCliente(this);
     }
 

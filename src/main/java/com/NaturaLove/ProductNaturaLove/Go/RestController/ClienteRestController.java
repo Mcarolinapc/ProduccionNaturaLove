@@ -2,8 +2,7 @@ package com.NaturaLove.ProductNaturaLove.Go.RestController;
 
 import com.NaturaLove.ProductNaturaLove.Go.Model.Cliente;
 import com.NaturaLove.ProductNaturaLove.Go.Repository.CustomerRepository;
-import com.NaturaLove.ProductNaturaLove.Go.Services.ClienteService;
-import com.NaturaLove.ProductNaturaLove.Go.Services.PedidoService;
+import com.NaturaLove.ProductNaturaLove.Go.Services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +15,82 @@ public class ClienteRestController {
     ClienteService clienteService;
     @Autowired
     PedidoService pedidoService;
+    @Autowired
+    TallerService tallerService;
+    @Autowired
+    ProductService productService;
+    @Autowired
+    DetallePedidoService detallePedidoService;
+
+    @RequestMapping("/populatec")
+    public String populateCliente(){
+
+        clienteService.populate();
+
+        return "ok";
+    }
+    @RequestMapping("/populatepr")
+    public String populateProductos(){
+
+    productService.createFakeProductos();
+
+        return "ok";
+    }
+    @RequestMapping("/populatet")
+    public String populattalleres(){
+
+
+        productService.populateProductos();
+
+        return "ok";
+    }
+    @RequestMapping("/populatep")
+    public String populatepedidos(){
+        pedidoService.populate();
+
+        return "ok";
+    }
+
+    @RequestMapping("/crea")
+    public String populatetaller() {
+        tallerService.createFakeTalleres();
+
+        return "ya esta ";
+    }
+
+        @RequestMapping("/sueña")
+        public String populatetalleress() {
+            tallerService.populateTalleres();
+
+            return "go ";
+        }
+
+    @RequestMapping("/DETALLE")
+    public String populatedetalle() {
+       detallePedidoService.createFakeDetallePedidos();
+
+        return "ya esta ";
+    }
+
+    @RequestMapping("/detalleCreado")
+    public String populatetalles() {
+        detallePedidoService.populateDettalles();
+
+        return "go ";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    /* @PostMapping
     public Cliente addCustomer(@RequestBody Cliente cliente) {
@@ -42,12 +117,6 @@ public class ClienteRestController {
     public void deleteCustomerById(@PathVariable String id) {
         clienteService.deleteCustomerById(id);
     }*/
-   @RequestMapping("/populate")
-   public String populateSimulationDB(){
 
-       pedidoService.populate();
 
-       return "ok";
-   }
-
-}
+        }

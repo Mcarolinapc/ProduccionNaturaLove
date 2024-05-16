@@ -1,19 +1,22 @@
 package com.NaturaLove.ProductNaturaLove.Go.Model;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Taller {
+    @Id
     private String id;
-    private String link;
     private String description;
+    private String link;
     private int precio;
-
-    //cada taller esta asociado a un unico producto
-    @OneToOne
-    @JoinColumn(name="producto_id", referencedColumnName = "id")
-    private Producto Producto;
-
-
-
 
 }

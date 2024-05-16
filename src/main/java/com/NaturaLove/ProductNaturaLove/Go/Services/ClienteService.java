@@ -2,6 +2,7 @@ package com.NaturaLove.ProductNaturaLove.Go.Services;
 
 import com.NaturaLove.ProductNaturaLove.Go.Model.Cliente;
 import com.NaturaLove.ProductNaturaLove.Go.Model.Pedido;
+import com.NaturaLove.ProductNaturaLove.Go.Model.Producto;
 import com.NaturaLove.ProductNaturaLove.Go.Repository.CustomerRepository;
 import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class ClienteService {
     CustomerRepository customerRepository;
     @Autowired
     PedidoService pedidoService;
+    @Autowired
+    ProductService productService;
 
 
     /*public Customer saveCustomer(Customer customer) {
@@ -55,12 +58,11 @@ public class ClienteService {
         Faker faker = new Faker(new Locale("Spain"));
 
         List<Pedido> pedidos;
-        //Date date = new Date();
 
         // ref variable creation UUID
         String uniqueID;
 
-        for (int i = 0; i <10 ; i++ ) {
+        for (int i = 0; i <3 ; i++ ) {
 
             uniqueID = UUID.randomUUID().toString();
             Cliente cliente = new Cliente();

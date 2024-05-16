@@ -56,7 +56,7 @@ public class PedidoService {
             uniqueID = UUID.randomUUID().toString();
             Pedido pedido = new Pedido(uniqueID,
                     date.toString(),
-                    faker.number().numberBetween(1, 2),null);
+                    faker.number().numberBetween(1, 2),null,null);
 
             pedidos.add(pedido);
 
@@ -64,6 +64,7 @@ public class PedidoService {
         }
 
         return pedidos;
+
     }
 
     public List<Pedido> populate() {
@@ -75,13 +76,10 @@ public class PedidoService {
             pedidos.add(pedidos.get(i));
         }
 
-        System.out.println(populate());
-
-
         return pedidos;
+
+
     }
-
-
 
 }
 

@@ -13,19 +13,22 @@ import java.util.*;
 @Service
 public class ProductService {
     @Autowired
-    ProductRepository simulationTiendaRepository;
+    ProductRepository productRepository;
 
 
+//creo base de datos fake de productos
     public List<Producto> createFakeProductos() {
 
+
+
         // locale in english
-        Faker faker = new Faker(new Locale("Spain"));
+        Faker faker = new Faker(new Locale("Spanish"));
         List<Producto> productos = new ArrayList<>();
 
         // ref variable creation UUID
         String uniqueID;
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
 
             uniqueID = UUID.randomUUID().toString();
             Producto producto=new Producto();
@@ -35,16 +38,28 @@ public class ProductService {
             producto.setDescription(faker.address().fullAddress());
             producto.setPrecio(faker.number().numberBetween(5,20));
 
+            productos.add(producto);
 
+        }
 
+        return productos;
+    }
+//lleno base de Datos
+    public List <Producto> populateProductos() {
+
+        List<Producto> productos = createFakeProductos();
+
+        for (int i = 0; i < 10; i++) {
+            productRepository.save(productos.get(i));
+            productos.add(productos.get(i));
         }
 
         return productos;
 
 
-
     }
 }
+
 
 
 

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,9 +22,6 @@ public class Producto {
     private String description;
     private int precio;
 
-    //con esta referencia one to many: un producto puede  tener una lista de talleres asociados.
-    @OneToMany(mappedBy = "producto")
-     private List<Taller>talleres;
 
 
 
@@ -33,10 +31,6 @@ public class Producto {
 
 
 
-     //referencia a un producto puede estar en varios pedidos
-    //@JsonIgnore
-    /*@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="PEDIDO_FK")
-    private Pedido pedido ;*/
+
 
 }
