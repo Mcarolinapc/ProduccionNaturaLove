@@ -16,21 +16,26 @@ import java.util.List;
 public class DetallePedido{
     @Id
     private String id;
-    private String idPedido;
-    private String idProducto;
     private int cantidad;
     private int precio;
 
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="PEDIDO_FK")
+    @JoinColumn(name = "Pedido_FK")
     private Pedido pedido;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="PRODUCTO_FK")
+    @JoinColumn(name = "PRODUCTO_FK")
     private Producto producto;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TALLER_FK")
+    private Taller taller;
+
+
 
 
 

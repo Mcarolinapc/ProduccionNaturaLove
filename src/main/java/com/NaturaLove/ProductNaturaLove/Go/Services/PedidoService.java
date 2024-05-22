@@ -56,7 +56,7 @@ public class PedidoService {
             uniqueID = UUID.randomUUID().toString();
             Pedido pedido = new Pedido(uniqueID,
                     date.toString(),
-                    faker.number().numberBetween(1, 2),null,null);
+                   null,null);
 
             pedidos.add(pedido);
 

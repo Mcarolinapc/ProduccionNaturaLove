@@ -1,5 +1,6 @@
 package com.NaturaLove.ProductNaturaLove.Go.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,5 +19,16 @@ public class Taller {
     private String description;
     private String link;
     private int precio;
+
+
+    @OneToMany(mappedBy = "taller", cascade = CascadeType.ALL)
+    private List<DetallePedido> detallePedidos = new ArrayList<>();
+
+    public void addDetallePedido(DetallePedido detallePedido) {
+        this.getDetallePedidos().add(detallePedido);
+        detallePedido.setTaller(this);
+    }
+
+
 
 }

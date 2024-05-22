@@ -22,6 +22,14 @@ public class Producto {
     private String description;
     private int precio;
 
+ @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+ private List<DetallePedido> detallePedidos = new ArrayList<>();
+
+ public void addDetallePedido(DetallePedido detallePedido) {
+  this.getDetallePedidos().add(detallePedido);
+  detallePedido.setProducto(this);
+ }
+
 
 
 

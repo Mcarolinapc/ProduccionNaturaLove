@@ -45,7 +45,7 @@ public class DetallePedidoService {
             uniqueID = UUID.randomUUID().toString();
             DetallePedido detallePedido = new DetallePedido();
             detallePedido.setId(uniqueID);
-            detallePedido.setIdProducto(uniqueID);
+            //detallePedido.setIdProducto(uniqueID);
             detallePedido.setCantidad(faker.number().numberBetween(0, 10));
             detallePedido.setPrecio(faker.number().numberBetween(5, 20));
 

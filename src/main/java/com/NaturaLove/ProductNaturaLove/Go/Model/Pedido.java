@@ -18,7 +18,6 @@ public class Pedido {
     @Id
     private String id;
     private String fecha;
-    private int idTipoProducto;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -36,5 +35,10 @@ public class Pedido {
 
 
 
+    }
 
-}
+
+
+
+
+
