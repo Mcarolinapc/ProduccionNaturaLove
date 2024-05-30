@@ -1,7 +1,7 @@
 package com.NaturaLove.ProductNaturaLove.Go.Services;
 
 import com.NaturaLove.ProductNaturaLove.Go.Model.DetallePedido;
-import com.NaturaLove.ProductNaturaLove.Go.Model.Producto;
+import com.NaturaLove.ProductNaturaLove.Go.Model.Taller;
 import com.NaturaLove.ProductNaturaLove.Go.Repository.DetallePedidoRepository;
 import com.github.javafaker.Faker;
 import lombok.AllArgsConstructor;
@@ -23,55 +23,56 @@ public class DetallePedidoService {
 
     @Autowired
     DetallePedidoRepository detallePedidoRepository;
-
-    // private String id;
-    //    private String idPedido;
-    //    private String idProducto;
-    //    private int cantidad;
-    //    private int precio;
-
-    public List<DetallePedido> createFakeDetallePedidos() {
+    @Autowired
+    PedidoService pedidoService;
+    @Autowired
+    TallerService tallerService;
 
 
-        // locale in english
+
+    private String id;
+    private int cantidad;
+    private int precio;
+
+    public List<DetallePedido> createFakeDetallePedido() {
         Faker faker = new Faker(new Locale("Spanish"));
+
         List<DetallePedido> detallePedidos = new ArrayList<>();
 
-        // ref variable creation UUID
+
         String uniqueID;
 
         for (int i = 0; i < 10; i++) {
+            Taller taller = tallerService.createFakeTaller();
 
             uniqueID = UUID.randomUUID().toString();
             DetallePedido detallePedido = new DetallePedido();
-            detallePedido.setId(uniqueID);
-            //detallePedido.setIdProducto(uniqueID);
-            detallePedido.setCantidad(faker.number().numberBetween(0, 10));
-            detallePedido.setPrecio(faker.number().numberBetween(5, 20));
+                    detallePedido.setIdDetallePedido(uniqueID);
+                   detallePedido.setCantidad(faker.number().numberBetween(5, 10));
+                   detallePedido.setPrecio( faker.number().numberBetween(20, 50));
+                   detallePedido.setTaller(taller);
+                   detallePedido.setPedido(null);
+                   detallePedido.setProducto(null);
 
             detallePedidos.add(detallePedido);
 
         }
 
         return detallePedidos;
-
-
-
-
     }
 
-    //lleno base de Datos
-    public List<DetallePedido> populateDettalles() {
+        public List<DetallePedido> populateDetallePedido () {
 
-        List<DetallePedido> detallePedidos = createFakeDetallePedidos();
 
-        for (int i = 0; i < 10; i++) {
-            detallePedidoRepository.save(detallePedidos.get(i));
-            detallePedidos.add(detallePedidos.get(i));
+
+            List<DetallePedido> detallePedidos = createFakeDetallePedido();
+
+            for (int i = 0; i < 10; i++) {
+                detallePedidoRepository.save(detallePedidos.get(i));
+                //detallePedidos.add(detallePedidos.get(i));
+            }
+
+            return detallePedidos;
+
         }
-
-        return detallePedidos;
-
-
     }
-}

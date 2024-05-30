@@ -1,5 +1,7 @@
 package com.NaturaLove.ProductNaturaLove.Go.Services;
+import com.NaturaLove.ProductNaturaLove.Go.Model.Cliente;
 import com.NaturaLove.ProductNaturaLove.Go.Model.Pedido;
+import com.NaturaLove.ProductNaturaLove.Go.Repository.DetallePedidoRepository;
 import com.NaturaLove.ProductNaturaLove.Go.Repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +42,6 @@ public class PedidoService {
 
      */
 
-
     public List<Pedido> createFakePedidos() {
 
         // locale in english
@@ -56,17 +57,14 @@ public class PedidoService {
             uniqueID = UUID.randomUUID().toString();
             Pedido pedido = new Pedido(uniqueID,
                     date.toString(),
-                   null,null);
+                    null,
+                    null);
 
             pedidos.add(pedido);
 
-
         }
-
         return pedidos;
-
     }
-
     public List<Pedido> populate() {
 
         List<Pedido> pedidos = createFakePedidos();
@@ -78,9 +76,6 @@ public class PedidoService {
 
         return pedidos;
 
-
     }
 
 }
-
-

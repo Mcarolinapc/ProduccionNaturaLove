@@ -20,7 +20,6 @@ public class ProductService {
     public List<Producto> createFakeProductos() {
 
 
-
         // locale in english
         Faker faker = new Faker(new Locale("Spanish"));
         List<Producto> productos = new ArrayList<>();
@@ -31,12 +30,12 @@ public class ProductService {
         for (int i = 0; i < 10; i++) {
 
             uniqueID = UUID.randomUUID().toString();
-            Producto producto=new Producto();
+            Producto producto = new Producto();
             producto.setId(uniqueID);
             producto.setNombreproduct(faker.artist().name());
-            producto.setQuantity(faker.number().numberBetween(0,10));
+            producto.setQuantity(faker.number().numberBetween(0, 10));
             producto.setDescription(faker.address().fullAddress());
-            producto.setPrecio(faker.number().numberBetween(5,20));
+            producto.setPrecio(faker.number().numberBetween(5, 20));
 
             productos.add(producto);
 
@@ -44,7 +43,9 @@ public class ProductService {
 
         return productos;
     }
-//lleno base de Datos
+
+    // lleno base de Datos
+
     public List <Producto> populateProductos() {
 
         List<Producto> productos = createFakeProductos();

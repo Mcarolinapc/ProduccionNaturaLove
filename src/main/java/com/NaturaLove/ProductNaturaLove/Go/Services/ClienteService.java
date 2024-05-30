@@ -20,8 +20,7 @@ public class ClienteService {
     CustomerRepository customerRepository;
     @Autowired
     PedidoService pedidoService;
-    @Autowired
-    ProductService productService;
+
 
 
     /*public Customer saveCustomer(Customer customer) {
@@ -62,7 +61,7 @@ public class ClienteService {
         // ref variable creation UUID
         String uniqueID;
 
-        for (int i = 0; i <3 ; i++ ) {
+        for (int i = 0; i <20 ; i++ ) {
 
             uniqueID = UUID.randomUUID().toString();
             Cliente cliente = new Cliente();
@@ -74,7 +73,7 @@ public class ClienteService {
             cliente.setPhone(faker.phoneNumber().cellPhone());
 
             pedidos = pedidoService.createFakePedidos();
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 3; j++) {
                 cliente.addPedido(pedidos.get(j));
             }
 

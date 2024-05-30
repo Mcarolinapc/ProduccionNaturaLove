@@ -27,15 +27,11 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<DetallePedido> detallePedidos = new ArrayList<>();
 
-    public void addDetallePedido(DetallePedido detallePedido) {
-        this.getDetallePedidos().add(detallePedido);
-        detallePedido.setPedido(this);
-    }
+
+   }
 
 
 
-
-    }
 
 
 
